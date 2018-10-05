@@ -10,6 +10,8 @@ var auth = require('./routes/auth');
 
 var app = express();
 
+const PORT = process.env.PORT || 8080;
+
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/parkingspotslisting', { promiseLibrary: require('bluebird')})
     .then(() => console.log('connection succesfull'))
@@ -18,7 +20,10 @@ mongoose.connect('mongodb://localhost/parkingspotslisting', { promiseLibrary: re
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({'extended': 'false'}));
-app.use(express.static(path.join(__dirname, 'build')));
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+}
 
 app.use('/api/spot', spot);
 app.use('/api/auth', auth);
@@ -39,6 +44,5 @@ app.use(function(err,req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
-
 });
 module.exports = app;

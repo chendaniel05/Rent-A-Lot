@@ -11,7 +11,7 @@ mongoose.connect(
 const spotSeed = [
   {
     address: "32 ACACIA RD",
-    postalcode:  "",
+    postalcode:  "N/A",
     price: "$10",
     type: "Widened Driveway",
     description: "Single",
@@ -19,7 +19,7 @@ const spotSeed = [
   },
   {
     address: "60 BABY POINT RD",
-    postalcode:  "",
+    postalcode:  "N/A",
     price: "$13",
     type: "Front yard",
     description: "Single",
@@ -27,7 +27,7 @@ const spotSeed = [
   },
   {
     address: "60 BABY POINT RD",
-    postalcode:  "",
+    postalcode:  "N/A",
     price: "$7",
     type: "Front yard",
     description: "Single",
@@ -35,7 +35,7 @@ const spotSeed = [
   },
   {
     address: "12 DACRE CRES",
-    postalcode:  "",
+    postalcode:  "N/A",
     price: "$10",
     type: "Widened Driveway",
     description: "Single",
@@ -43,7 +43,7 @@ const spotSeed = [
   },
   {
     address: "150 EARLSCOURT AVE",
-    postalcode:  "",
+    postalcode:  "N/A",
     price: "$15",
     type: "Front yard",
     description: "Single",
@@ -51,7 +51,7 @@ const spotSeed = [
   },
   {
     address: "98 FURNIVAL RD",
-    postalcode:  "",
+    postalcode:  "N/A",
     price: "$5",
     type: "Front yard",
     description: "Single",
@@ -59,7 +59,7 @@ const spotSeed = [
   },
   {
     address: "166 GAINSBOROUGH RD",
-    postalcode:  "",
+    postalcode:  "N/A",
     price: "$9",
     type: "Widened Driveway",
     description: "Single",
@@ -67,7 +67,7 @@ const spotSeed = [
   },
   {
     address: "23 HADDON ST",
-    postalcode:  "",
+    postalcode:  "N/A",
     price: "$11",
     type: "Front yard",
     description: "Single",
