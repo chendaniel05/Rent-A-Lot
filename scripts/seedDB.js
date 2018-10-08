@@ -9,7 +9,7 @@ mongoose.connect(
 );
 
 const spotSeed = [
-  {
+  {                                                              
     address: "32 ACACIA RD",
     postalcode:  "N/A",
     price: "$10",
@@ -26,7 +26,7 @@ const spotSeed = [
     contact: "mongod@mail.com"
   },
   {
-    address: "60 BABY POINT RD",
+    address: "112 CADORNA AVE",
     postalcode:  "N/A",
     price: "$7",
     type: "Front yard",

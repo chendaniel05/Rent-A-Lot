@@ -1,88 +1,40 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import './index.css';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      spots: []
-    };
-  }
+import Home from './pages/Home';
+import Listing from './pages/Listing';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Newspot from './pages/Newspot';
+import Spot from './pages/Spot';
+import Editspot from './pages/Editspot';
+import MapContainer from './components/MapContainer';
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+// import NoMatch from "./pages/NoMatch";
 
-  componentDidMount() {
-    axios.defaults.headers.common["Authorization"] = localStorage.getItem(
-      "jwtToken"
-    );
-    axios
-      .get("/api/spot")
-      .then(res => {
-        this.setState({ spots: res.data });
-        console.log(this.state.spots);
-      })
-      .catch(error => {
-        if (error.response.status == 401) {
-          this.props.history.push("/login");
-        }
-      });
-  }
 
-  logout = () => {
-    localStorage.removeItem("jwtToken");
-    window.location.reload();
-  };
+const App = () => (
+  <Router>
+    <div>
+      <Navbar />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/listing' component={Listing} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/register' component={Register} />
+        <Route exact path='/spot/new' component={Newspot} />
+        <Route exact path='/show/:id' component={Spot} />
+        <Route exact path='/edit/:id' component={Editspot} />
+        <Route exact path='/maps' component={MapContainer} />
+        {/* <Route component={NoMatch} /> */}
+      </Switch>
+      <Footer />
 
-  render() {
-    return (
-      <div className="container">
-        <div className="panel panel-default">
-          <div className="panel-heading">
-            <h3 className="panel-title">
-              PARKING SPOTS LISTING &nbsp;
-              {localStorage.getItem("jwtToken") && (
-                <button className="btn btn-primary" onClick={this.logout}>
-                  Logout
-                </button>
-              )}
-            </h3>
-          </div>
-          <div className="panel-body">
-            <table className="table table-stripe">
-              <thead>
-                <tr>
-                  <th>Address</th>
-                  <th>Postal Code</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.spots.map(spot => (
-                  <tr>
-                    <td>
-                      <Link
-                        to={{
-                          pathname: `/show/${spot._id}`,
-                          state: spot
-                        }}
-                      >
-                        {spot.address}
-                      </Link>
-                    </td>
-                    <td>{spot.postalcode}</td>
-                    <td>{spot.price}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <Link className="btn btn-primary" to={`/spots/new`}>
-              New spot
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+    </div>
+  </Router>
+);
 
 export default App;
