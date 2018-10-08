@@ -9,7 +9,9 @@ class Listing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      spots: []
+      spots: [],
+      lat: 43.6532,
+      lng: -79.3832
     };
   }
 
@@ -77,7 +79,8 @@ class Listing extends Component {
               </tbody>
             </table>
 
-            <MapContainer />
+            <MapContainer lat={this.state.lat} lng={this.state.lng} spots={this.state.spots}/>
+
           </div>
         </div>
       </div>

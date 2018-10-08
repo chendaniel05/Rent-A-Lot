@@ -1,14 +1,49 @@
 import React, { Component } from "react";
-
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import Geocode from "react-geocode";
+// set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
+Geocode.setApiKey("AIzaSyC2fgI8v3-pjcX-Mz-pNw-SjuhA-D1Cjq8");
+
+// Enable or disable logs. Its optional.
+Geocode.enableDebug();
+
+const style = {
+  width: '100%',
+  height: '100%'
+}
 
 export class MapContainer extends Component {
+  getLatLng = (spotAddress) => {
+    // Get latidude & longitude from address.
+    Geocode.fromAddress(spotAddress).then(
+      response => {
+        const { lat, lng } = response.results[0].geometry.location;
+        console.log(lat, lng);
+        return {lat:lat, lng:lng};
+
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
   render() {
     return (
-      <Map google={this.props.google} zoom={14}>
+      <Map google={this.props.google}
+        style={style}
+        initialCenter={{
+          lat: this.props.lat,
+          lng: this.props.lng
+        }}
+        zoom={14}>
 
-        <Marker onClick={this.onMarkerClick}
-          name={'Current location'} />
+        {this.props.spots.map((spot) =>
+          <Marker
+            title={spot.address}
+            name={'SOMA'}
+            position={this.getLatLng(spot.address)} />
+        )}
+
 
         <InfoWindow onClose={this.onInfoWindowClose}>
           {/* <div>
@@ -21,7 +56,7 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo",
+  apiKey: "AIzaSyC2fgI8v3-pjcX-Mz-pNw-SjuhA-D1Cjq8",
   v: "3.30"
 })(MapContainer);
 
@@ -38,7 +73,7 @@ export default GoogleApiWrapper({
 //     center={props.center}
 //   />
 
-  
+
 // export default class Map extends Component {
 //   constructor(props) {
 //     super(props);
