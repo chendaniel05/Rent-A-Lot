@@ -10,7 +10,7 @@ mongoose.connect(
 
 const spotSeed = [
   {                                                              
-    address: "32 ACACIA RD",
+    address: "32 ACACIA RD, Toronto, Ontario",
     postalcode:  "N/A",
     price: "$10",
     type: "Widened Driveway",
@@ -18,7 +18,7 @@ const spotSeed = [
     contact: "robo3t@mail.com"
   },
   {
-    address: "60 BABY POINT RD",
+    address: "60 BABY POINT RD, Toronto, Ontario",
     postalcode:  "N/A",
     price: "$13",
     type: "Front yard",
@@ -26,7 +26,7 @@ const spotSeed = [
     contact: "mongod@mail.com"
   },
   {
-    address: "112 CADORNA AVE",
+    address: "112 CADORNA AVE, Toronto, Ontario",
     postalcode:  "N/A",
     price: "$7",
     type: "Front yard",
@@ -34,7 +34,7 @@ const spotSeed = [
     contact: "javascript@mail.com"
   },
   {
-    address: "12 DACRE CRES",
+    address: "12 DACRE CRES, Toronto, Ontario",
     postalcode:  "N/A",
     price: "$10",
     type: "Widened Driveway",
@@ -42,7 +42,7 @@ const spotSeed = [
     contact: "html@mail.com"
   },
   {
-    address: "150 EARLSCOURT AVE",
+    address: "150 EARLSCOURT AVE, Toronto, Ontario",
     postalcode:  "N/A",
     price: "$15",
     type: "Front yard",
@@ -50,7 +50,7 @@ const spotSeed = [
     contact: "css@mail.com"
   },
   {
-    address: "98 FURNIVAL RD",
+    address: "98 FURNIVAL RD, Toronto, Ontario",
     postalcode:  "N/A",
     price: "$5",
     type: "Front yard",
@@ -58,7 +58,7 @@ const spotSeed = [
     contact: "mern@mail.com"
   },
   {
-    address: "166 GAINSBOROUGH RD",
+    address: "166 GAINSBOROUGH RD, Toronto, Ontario",
     postalcode:  "N/A",
     price: "$9",
     type: "Widened Driveway",
@@ -66,7 +66,7 @@ const spotSeed = [
     contact: "crud@mail.com"
   },
   {
-    address: "23 HADDON ST",
+    address: "23 HADDON ST, Toronto, Ontario",
     postalcode:  "N/A",
     price: "$11",
     type: "Front yard",

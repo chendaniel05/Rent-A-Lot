@@ -2,25 +2,29 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
+import MapContainer from "../components/MapContainer";
 
 
 class Spot extends Component {
   state = {
-    isUserOwner: false
+    isUserOwner: false,
+    spots: [],
+    lat: 43.6532,
+    lng: -79.3832
   };
 
-  onDelete = () => {
-    var result = window.confirm("Are you sure you want to delete?");
-    if (result) {
-      console.log("deleted");
-      axios
-        .delete("/api/spot/" + this.props.location.state._id)
-        .then(result => {
-          console.log(result);
-          this.props.history.push("/");
-        });
-    }
-  };
+  // onDelete = () => {
+  //   var result = window.confirm("Are you sure you want to delete?");
+  //   if (result) {
+  //     console.log("deleted");
+  //     axios
+  //       .delete("/api/spot/" + this.props.location.state._id)
+  //       .then(result => {
+  //         console.log(result);
+  //         this.props.history.push("/");
+  //       });
+  //   }
+  // };
 
   render() {
     return (
@@ -76,7 +80,10 @@ class Spot extends Component {
           >
             Delete
         </button>}&nbsp;&nbsp;
-      </div>
+  
+        <MapContainer lat={this.state.lat} lng={this.state.lng} spots={this.state.spots} />
+
+        </div>
       </div >
     );
   }

@@ -8,25 +8,42 @@ Geocode.setApiKey("AIzaSyC2fgI8v3-pjcX-Mz-pNw-SjuhA-D1Cjq8");
 Geocode.enableDebug();
 
 const style = {
-  width: '100%',
-  height: '100%'
+  width: '150vh',
+  height: '100vh'
 }
 
 export class MapContainer extends Component {
   getLatLng = (spotAddress) => {
-    // Get latidude & longitude from address.
+    // Get latitude & longitude from address.
     Geocode.fromAddress(spotAddress).then(
       response => {
         const { lat, lng } = response.results[0].geometry.location;
         console.log(lat, lng);
-        return {lat:lat, lng:lng};
+        return { lat: lat, lng: lng };
 
-      },
-      error => {
-        console.error(error);
-      }
-    );
+      }).catch(
+        error => {
+          console.error(error);
+        }
+      );
   }
+
+  // componentDidMount() {
+
+  //   console.log(this.props.spots[0].address)
+  //   const latLngArray = [];
+
+  //   {
+  //     this.props.spots.map((spot) => {
+  //       console.log(spot.address)
+  //       console.log(this.getLatLng(spot.address))
+  //       const latLng = this.getLatLng(spot.address)
+  //       latLngArray.push(latLng)
+  //     }
+  //     )
+  //   }
+  // }
+
   render() {
     return (
       <Map google={this.props.google}
@@ -37,19 +54,23 @@ export class MapContainer extends Component {
         }}
         zoom={14}>
 
-        {this.props.spots.map((spot) =>
-          <Marker
+        {this.props.spots.map((spot) => {
+          console.log(spot, "here")
+
+          return <Marker
             title={spot.address}
             name={'SOMA'}
             position={this.getLatLng(spot.address)} />
+        }
+
         )}
 
 
-        <InfoWindow onClose={this.onInfoWindowClose}>
-          {/* <div>
-            <h1>{this.state.selectedPlace.name}</h1>
-          </div> */}
-        </InfoWindow>
+        {/* <InfoWindow onClose={this.onInfoWindowClose}>
+          <div>
+            <h1>{this.props.address}</h1>
+          </div>
+        </InfoWindow> */}
       </Map>
     );
   }
@@ -59,41 +80,3 @@ export default GoogleApiWrapper({
   apiKey: "AIzaSyC2fgI8v3-pjcX-Mz-pNw-SjuhA-D1Cjq8",
   v: "3.30"
 })(MapContainer);
-
-// import { GoogleMap, withGoogleMap } from 'react-google-maps';
-// import { default as React, Component } from 'react';
-
-// const googleMapUrl = `https://maps.googleapis.com/maps/api/js?key=${API_KEY}`;
-// const API_KEY = "AIzaSyC2fgI8v3-pjcX-Mz-pNw-SjuhA-D1Cjq8";
-
-// const SimpleGoogleMap = withGoogleMap(props => (
-//   <GoogleMap
-//     googleMapUrl={googleMapUrl}
-//     zoom={props.zoom}
-//     center={props.center}
-//   />
-
-
-// export default class Map extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       zoom: 11,
-//       center: { lat: 29.969516, lng: -90.103866 },
-//       markers: [],
-//       markersLoaded: false,
-//     };
-//   }
-//   render() {
-//     return (
-//       <SimpleGoogleMap
-//         containerElement={
-//           <div className="mapContainer" />
-//         }
-//         mapElement={
-//           <div className="map" />
-//         }
-//       />
-//     );
-//   }
-// }
