@@ -35,20 +35,23 @@ class TeamSection extends React.Component {
           <GridContainer>
             <GridItem xs={12} sm={12} md={4}>
               <Card plain>
+                {/* LEAVING OUT THE IMAGE*
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                   <img src={team1} alt="..." className={imageClasses} />
-                </GridItem>
-                <h4 className={classes.cardTitle}>
-                  Gigi Hadid
+                </GridItem> */}
+                <h3 className={classes.cardTitle}>
+                  Daniel Chen
                   <br />
-                  <small className={classes.smallTitle}>Model</small>
-                </h4>
+                  <small className={classes.smallTitle}>Full-Stack Developer</small>
+                </h3>
                 <CardBody>
                   <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
+                  I am a graduate of the University of Toronto with a specialization in Full Stack Development.
+                  with a passion for programming and problem solving. 
+                  I love developing great user experiences as well as learning new things about the field. 
+                  Skilled in both team and individual work environments, 
+                  I strive to be an integral and valued part of any workplace. 
+                  Interested in Web Development and Network Engineering.
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
@@ -78,20 +81,21 @@ class TeamSection extends React.Component {
             </GridItem>
             <GridItem xs={12} sm={12} md={4}>
               <Card plain>
+                {/* LEAVING OUT THE IMAGE*
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                   <img src={team2} alt="..." className={imageClasses} />
-                </GridItem>
-                <h4 className={classes.cardTitle}>
-                  Christian Louboutin
+                </GridItem> */}
+                <h3 className={classes.cardTitle}>
+                  Celia Ho
                   <br />
-                  <small className={classes.smallTitle}>Designer</small>
-                </h4>
+                  <small className={classes.smallTitle}>Full-stack Developer (Product Manager)</small>
+                </h3>
                 <CardBody>
                   <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
+                  Full stack developer with interest in software development in the scientific, 
+                  healthcare or pharmaceutical industry. 
+                  Enthusiastic about developing web applications that can make a meaningful impact to society.
+                  Passionate about the integration of cyber security in web development.
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
@@ -114,20 +118,21 @@ class TeamSection extends React.Component {
             </GridItem>
             <GridItem xs={12} sm={12} md={4}>
               <Card plain>
+                {/* LEAVING OUT IMAGE*
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                   <img src={team3} alt="..." className={imageClasses} />
-                </GridItem>
-                <h4 className={classes.cardTitle}>
-                  Kendall Jenner
+                </GridItem> */}
+                <h3 className={classes.cardTitle}>
+                  Roberto Gonzalez
                   <br />
                   <small className={classes.smallTitle}>Model</small>
-                </h4>
+                </h3>
                 <CardBody>
                   <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
+                  Technology! In addition to being a nurse I have worked as IT help-desk level-2, 
+                  built my own websites as well as computers. Currently learning JavaScript and Python. 
+                  I seek to work with like-minded individuals/teams to entangle technology and healthcare. 
+                  My goal is to provide clients with outstanding and unique health-care experiences. 
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>

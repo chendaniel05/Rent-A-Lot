@@ -29,7 +29,7 @@ import signupPageStyle from "assets/jss/material-kit-react/views/registerPage.js
 import "./Login.css";
 
 
-import image from "assets/img/bg7.jpg";
+import image from "assets/img/bg.jpg";
 
 class Create extends Component {
   constructor(props) {

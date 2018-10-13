@@ -28,7 +28,7 @@ import loginPageStyle from "assets/jss/material-kit-react/views/loginPage.jsx";
 import "./Login.css";
 
 
-import image from "assets/img/bg7.jpg";
+import image from "assets/img/bg.jpg";
 
 class LoginPage extends React.Component {
   constructor(props) {

@@ -25,6 +25,12 @@ class Header extends React.Component {
     this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
     this.headerColorChange = this.headerColorChange.bind(this);
   }
+
+  logout = () => {
+    localStorage.removeItem("jwtToken");
+    window.location.replace("/");
+  };
+
   handleDrawerToggle() {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   }
@@ -100,6 +106,11 @@ class Header extends React.Component {
             </IconButton>
           </Hidden>
         </Toolbar>
+        {localStorage.getItem("jwtToken") && (
+              <button className="btn btn-primary" onClick={this.logout}>
+                Logout
+                </button>
+            )}
         <Hidden mdUp implementation="css">
           <Drawer
             variant="temporary"
@@ -116,6 +127,7 @@ class Header extends React.Component {
             </div>
           </Drawer>
         </Hidden>
+
       </AppBar>
     );
   }
